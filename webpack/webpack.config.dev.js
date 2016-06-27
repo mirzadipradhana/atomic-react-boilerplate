@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Webpack = require('webpack');
 
 var commonLoaders = [
-	{ test: /\.js$/, loader: 'babel-loader', include: Path.join(__dirname, "..", "src") },
+	{ test: /\.(js|jsx)$/, loader: 'babel-loader', include: Path.join(__dirname, "..", "src") },
 	{ test: /\.png$/, loader: 'url-loader' },
 	{ test: /\.jpg$/, loader: 'file-loader' },
 	{ test: /\.json$/, loader: 'json-loader' }

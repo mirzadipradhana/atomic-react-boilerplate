@@ -1,0 +1,5 @@
+{
+  "name": "Index",
+  "private": true,
+  "main": "./Index.jsx"
+}
