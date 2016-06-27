@@ -1,0 +1,17 @@
+{
+  "name": "atomic-react-boilerplate",
+  "version": "0.1.0",
+  "description": "React.JS atomic design boilerplate build by Webpack",
+  "main": "server/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "es6",
+    "react",
+    "flux",
+    "webpack"
+  ],
+  "author": "Mirza Adipradhana",
+  "license": "MIT"
+}
