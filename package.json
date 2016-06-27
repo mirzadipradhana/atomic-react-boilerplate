@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "description": "React.JS atomic design boilerplate build by Webpack",
   "main": "server/main.js",
-  "scripts": {   
-    "start": "babel-node server",
-    "dev": "babel-node server"
-
+  "scripts": {
+    "start": "webpack --colors --progress --config ./webpack/webpack.config.dev.js && babel-node server",
+    "dev": "webpack --colors --progress --config ./webpack/webpack.config.dev.js && babel-node server"
   },
   "keywords": [
     "es6",
@@ -15,15 +14,20 @@
     "webpack"
   ],
   "author": "Mirza Adipradhana",
-  "license": "MIT",  
+  "license": "MIT",
   "dependencies": {
     "express": "^4.14.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.6.5",
+    "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.3.13",
-    "dotenv": "^2.0.0"
+    "dotenv": "^2.0.0",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.21.0",
+    "json-loader": "^0.5.4",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1"
   }
-
 }
