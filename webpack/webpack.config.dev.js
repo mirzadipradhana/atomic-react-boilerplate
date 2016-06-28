@@ -3,13 +3,16 @@
 var Path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var commonLoaders = [
 	{ test: /\.(js|jsx)$/, loader: 'babel-loader', include: Path.join(__dirname, "..", "src") },
 	{ test: /\.png$/, loader: 'url-loader' },
 	{ test: /\.jpg$/, loader: 'file-loader' },
-	{ test: /\.json$/, loader: 'json-loader' }
+	{ test: /\.json$/, loader: 'json-loader' },
+	{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader"), include: Path.join(__dirname, "..", "src/assets") }
 ];
+var extractCSSAsset = new ExtractTextPlugin("stylesheet/global.css");
 var publicPath = '/server';
 
 module.exports = {
@@ -27,12 +30,11 @@ module.exports = {
 			filename: 'index.html'
 		}),
 		new Webpack.optimize.OccurenceOrderPlugin(),
-		new Webpack.NoErrorsPlugin()
+		new Webpack.NoErrorsPlugin(),
+		extractCSSAsset
 	],
 	module: {
-		loaders: commonLoaders.concat([
-			{ test: /\.css$/, loader: "style-loader!css-loader" },
-		])
+		loaders: commonLoaders
 	},
 	resolve: {
 		extension: ['', '.js']
