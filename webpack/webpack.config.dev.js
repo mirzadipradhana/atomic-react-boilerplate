@@ -1,35 +1,35 @@
 'use strict'
 
-var Path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var Webpack = require('webpack');
+import {PATH} from '../.configs';
+import Webpack from 'webpack';
 
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var ProgressBarPlugin = require('progress-bar-webpack-plugin');
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 
-var commonLoaders = [
-	{ test: /\.(js|jsx)$/, loader: 'babel-loader', include: Path.join(__dirname, "..", "src") },
+const commonLoaders = [
+	{ test: /\.(js|jsx)$/, loader: 'babel-loader', include: PATH.CLIENT_SRC },
 	{ test: /\.png$/, loader: 'url-loader' },
 	{ test: /\.jpg$/, loader: 'file-loader' },
 	{ test: /\.json$/, loader: 'json-loader' },
-	{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader"), include: Path.join(__dirname, "..", "src/assets") },,
-	{ test: /\.css$/, loader: "style-loader!css-loader?modules&localIdentName=[local]--[hash:base64:4]", exclude: Path.join(__dirname, "..", "src/assets") }
+	{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader"), include: PATH.ASSETS },
+	{ test: /\.css$/, loader: "style-loader!css-loader?modules&localIdentName=[local]--[hash:base64:4]", exclude: PATH.ASSETS }
 ];
-var extractCSSAsset = new ExtractTextPlugin("stylesheet/global.css");
+const extractCSSAsset = new ExtractTextPlugin("stylesheet/global.css");
 var publicPath = '/server';
 
 module.exports = {
-	entry: Path.join(__dirname, '..', 'src/main.js'),
+	entry: PATH.CLIENT_SRC + '/main.js',
 	devtool: 'eval-source-map',
 	output: {
-		path: Path.join(__dirname, '..', 'dist/server/'),
+		path: PATH.WEBPACK_OUTPUT,
 		filename: 'bundle.js',
 		publicPath: publicPath
 	},
 	plugins: [
 		new ProgressBarPlugin(),
 		new HtmlWebpackPlugin({
-			template: Path.join(__dirname, '..', 'server/templates/index.tpl.html'),
+			template: PATH.TEMPLATES + '/index.tpl.html',
 			inject: 'body',
 			filename: 'index.html'
 		}),
