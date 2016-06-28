@@ -1,5 +1,6 @@
 import React from 'react';
 
+import styles from './style.css';
 import logo from '../../assets/images/logo.png';
 
 export default class App extends React.Component {
@@ -9,7 +10,7 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className={styles.root}>
         <img src={logo} />
         <div>This is from react</div>
       </div>
