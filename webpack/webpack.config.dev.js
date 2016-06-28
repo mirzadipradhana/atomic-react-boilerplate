@@ -11,7 +11,7 @@ var commonLoaders = [
 	{ test: /\.jpg$/, loader: 'file-loader' },
 	{ test: /\.json$/, loader: 'json-loader' },
 	{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader"), include: Path.join(__dirname, "..", "src/assets") },,
-	{ test: /\.css$/, loader: "style-loader!css-loader?modules", exclude: Path.join(__dirname, "..", "src/assets") }
+	{ test: /\.css$/, loader: "style-loader!css-loader?modules&localIdentName=[local]--[hash:base64:4]", exclude: Path.join(__dirname, "..", "src/assets") }
 ];
 var extractCSSAsset = new ExtractTextPlugin("stylesheet/global.css");
 var publicPath = '/server';
