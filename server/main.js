@@ -1,11 +1,30 @@
 'use strict';
 
 import Express from 'express';
+import Webpack from 'webpack';
 import Path from 'path';
 
 import {APP_SETUP} from '../.configs';
+const webpackConfig = require('../webpack/webpack.config.dev');
 
 let app = Express();
+
+// Running webpack builder with NodeAPI 
+////
+const builder = Webpack(webpackConfig, (err, stats) => {
+  if (err) {
+    throw console.log(err);
+  } else {
+    console.log(
+      stats.toString({
+        chunks: false, // Makes the build much quieter
+        colors: true,
+        hash: false,
+        chunkModules: false
+      })
+    );
+  }
+});
 
 app.set('port', APP_SETUP.PORT);
 app.disable('x-powered-by');

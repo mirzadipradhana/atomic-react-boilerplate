@@ -3,7 +3,9 @@
 var Path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Webpack = require('webpack');
+
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 var commonLoaders = [
 	{ test: /\.(js|jsx)$/, loader: 'babel-loader', include: Path.join(__dirname, "..", "src") },
@@ -25,6 +27,7 @@ module.exports = {
 		publicPath: publicPath
 	},
 	plugins: [
+		new ProgressBarPlugin(),
 		new HtmlWebpackPlugin({
 			template: Path.join(__dirname, '..', 'server/templates/index.tpl.html'),
 			inject: 'body',

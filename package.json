@@ -4,8 +4,8 @@
   "description": "React.JS atomic design boilerplate build by Webpack",
   "main": "server/main.js",
   "scripts": {
-    "start": "webpack --colors --progress --config ./webpack/webpack.config.dev.js && babel-node server",
-    "dev": "webpack --colors --progress --config ./webpack/webpack.config.dev.js && babel-node server"
+    "start": "babel-node server",
+    "dev": "babel-node server"
   },
   "keywords": [
     "es6",
@@ -30,6 +30,7 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.21.0",
     "json-loader": "^0.5.4",
+    "progress-bar-webpack-plugin": "^1.8.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "style-loader": "^0.13.1",
