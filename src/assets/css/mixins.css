@@ -1,0 +1,10 @@
+@import "./variables.css";
+
+/* define css mixin using postcss-mixins */
+@define-mixin card {
+  border: 1px solid $light-gray;
+  border-radius: $corner-radius;
+  position: relative;
+  padding: 16px;
+  margin: 8px;
+}

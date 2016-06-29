@@ -1,6 +1,9 @@
 @import "../../../assets/css/variables.css";
+@import '../../../assets/css/mixins.css';
 
 .root {
+  @mixin card;
+
   background-color: #ffffff;
   color: $blue-react;
   font-weight: bold;

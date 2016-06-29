@@ -5,5 +5,9 @@
   /* Colors */
   $light-gray: color(white lightness(99%));
   $dark-gray: rgba(34, 34, 34, 1);
+  $light-gray: rgba(211, 211, 211, 1);
   $blue-react: rgba(97, 218, 251, 1);
+
+  /* Border */
+  $corner-radius: 4px;
 }

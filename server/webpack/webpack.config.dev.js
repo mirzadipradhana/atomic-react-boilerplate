@@ -58,6 +58,7 @@ module.exports = {
     return [
       require('postcss-import')({ addDependencyTo: bundler }),
       require('postcss-cssnext')({ autoprefixer: { browsers: ['last 2 versions'] }, customProperties: false }),
+      require('postcss-mixins')({ mixinsFiles: PATH.ASSETS + '/css/mixins.css'} ),
       require('postcss-nested')(),
       require('postcss-simple-vars')()
     ];
