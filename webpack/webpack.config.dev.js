@@ -33,6 +33,10 @@ module.exports = {
 			inject: 'body',
 			filename: 'index.html'
 		}),
+		new Webpack.ProvidePlugin({
+			'React': 'react',
+			'ReactDOM': 'react-dom',
+		}),
 		new Webpack.optimize.OccurenceOrderPlugin(),
 		new Webpack.NoErrorsPlugin(),
 		extractCSSAsset
@@ -41,6 +45,6 @@ module.exports = {
 		loaders: commonLoaders
 	},
 	resolve: {
-		extension: ['', '.js']
+		extension: ['', '.js', '.jsx']
 	}
 };
