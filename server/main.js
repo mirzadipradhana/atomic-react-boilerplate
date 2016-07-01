@@ -4,6 +4,7 @@ import Express from 'express';
 import Webpack from 'webpack';
 import Path from 'path';
 
+import Logger from './logger';
 import {APP_SETUP} from '../.configs';
 import webpackHMR from './middlewares/webpackHMR.middleware';
 const webpackConfig = require('../webpack/webpack.config.dev');
@@ -19,7 +20,8 @@ app.disable('x-powered-by');
 
 app.listen(app.get('port'), function onStart(err) {
   if (err) {
-    console.log(err);
+    return Logger.error(innerErr);
   }
-  console.log('\nListening on port %s. Open up %s://%s:%s/ in your browser.', app.get('port'), APP_SETUP.PROTOCOL, APP_SETUP.HOST, app.get('port'));
+
+  Logger.appStarted({ protocol: APP_SETUP.PROTOCOL, host: APP_SETUP.HOST, port: APP_SETUP.PORT });
 });
