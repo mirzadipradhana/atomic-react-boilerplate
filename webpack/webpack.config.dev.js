@@ -1,6 +1,6 @@
 'use strict'
 
-import {PATH} from '../.configs';
+import {APP_SETUP, PATH} from '../.configs';
 import Webpack from 'webpack';
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
@@ -19,8 +19,11 @@ const extractCSSAsset = new ExtractTextPlugin("stylesheet/global.css");
 var publicPath = '/server';
 
 module.exports = {
-	entry: PATH.CLIENT_SRC + '/main.js',
-	devtool: 'eval-source-map',
+	entry: [
+    'webpack-hot-middleware/client', // connects to the HMR server to receive notifications when the bundle rebuilds and then updates your client bundle accordingly
+		PATH.CLIENT_SRC + '/main.js',
+	],
+  devtool: 'eval-source-map',
 	output: {
 		path: PATH.WEBPACK_OUTPUT,
 		filename: 'bundle.js',
@@ -28,17 +31,23 @@ module.exports = {
 	},
 	plugins: [
 		new ProgressBarPlugin(),
-		new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
 			template: PATH.TEMPLATES + '/index.tpl.html',
-			inject: 'body',
-			filename: 'index.html'
+      inject: 'body',
+      filename: 'index.html'
 		}),
 		new Webpack.ProvidePlugin({
 			'React': 'react',
 			'ReactDOM': 'react-dom',
 		}),
 		new Webpack.optimize.OccurenceOrderPlugin(),
+    new Webpack.HotModuleReplacementPlugin(), // enabled HMR
 		new Webpack.NoErrorsPlugin(),
+    new Webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(APP_SETUP.IS_DEV),
+      },
+    }),
 		extractCSSAsset
 	],
 	module: {
@@ -46,5 +55,6 @@ module.exports = {
 	},
 	resolve: {
 		extension: ['', '.js', '.jsx']
-	}
+	},
+  target:'web'
 };
