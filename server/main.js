@@ -7,7 +7,7 @@ import Path from 'path';
 import Logger from './libs/logger';
 import {APP_SETUP} from '../.configs';
 import webpackHMR from './middlewares/webpackHMR.middleware';
-const webpackConfig = require('../webpack/webpack.config.dev');
+const webpackConfig = require('./webpack/webpack.config.dev');
 
 let app = Express();
 

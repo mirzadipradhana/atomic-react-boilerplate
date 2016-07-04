@@ -1,6 +1,6 @@
 'use strict'
 
-import {APP_SETUP, PATH} from '../.configs';
+import {APP_SETUP, PATH} from '../../.configs';
 import Webpack from 'webpack';
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
