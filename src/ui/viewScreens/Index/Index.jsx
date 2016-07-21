@@ -1,5 +1,5 @@
 import styles from './style.css';
-import logo from '../../assets/images/logo.png';
+import logo from '../../../assets/images/logo.png';
 
 export default class App extends React.Component {
   constructor(props) {

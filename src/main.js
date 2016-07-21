@@ -1,4 +1,4 @@
-import App from './viewScreens/Index';
+import App from './ui/viewScreens/Index';
 
 require('./assets/css/global.css');
 
