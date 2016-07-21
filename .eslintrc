@@ -11,5 +11,9 @@
     "no-debugger": ["warn"],
     "no-restricted-syntax": ["off"]
   },
+  "globals": {
+    "React": true,
+    "ReactDOM": true
+  },
   "parser": "babel-eslint"
 }
