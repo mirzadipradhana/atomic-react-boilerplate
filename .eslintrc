@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "strict": ["off"],
+    "no-underscore-dangle": ["off"],
+    "comma-dangle": ["error", "never"],
+    "arrow-body-style": ["error", "always"],
+    "max-len": ["off"],
+    "no-console": ["off"],
+    "no-useless-constructor": ["off"],
+    "no-debugger": ["warn"],
+    "no-restricted-syntax": ["off"]
+  },
+  "parser": "babel-eslint"
+}
