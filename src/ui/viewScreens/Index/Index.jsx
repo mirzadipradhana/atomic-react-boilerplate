@@ -4,12 +4,12 @@ import logo from '../../../assets/images/logo.png';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {test: 'foo'};
+    this.state = { test: 'foo' };
   }
   render() {
     return (
       <div className={styles.root}>
-        <img src={logo} />
+        <img src={logo} alt="logo" />
         <div>This is from react</div>
       </div>
     );

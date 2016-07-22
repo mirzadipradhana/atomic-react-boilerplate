@@ -9,7 +9,9 @@
     "no-console": ["off"],
     "no-useless-constructor": ["off"],
     "no-debugger": ["warn"],
-    "no-restricted-syntax": ["off"]
+    "no-restricted-syntax": ["off"],
+    "new-cap": ["off"],
+    "consistent-return": ["off"]
   },
   "globals": {
     "React": true,
