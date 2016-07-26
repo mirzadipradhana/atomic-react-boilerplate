@@ -11,22 +11,42 @@ Starter template for react and webpack which adapting [atomic design methodology
 
 Install [node.js](https://nodejs.org)
 
-Just clone this repo.
+Clone this repo.
 
-``` text
+```
+# install all dependency
 npm install
 ```
 
-## Running on Vagrant
+## Running server on Vagrant
 
 Install [vagrant](https://vagrantup.com)
 
 ``` text
+# Creates, configures guest machines according to Vagrantfile. This command also run provision according to your VagrantProfision.sh
 vagrant up
+
+# get an access into a running VM through SSH
 vagrant ssh
+
+# go to Project root directory in VM (this directory is sync with Project directory on your local machine) 
 cd /www
+
+# start the server
 npm start
 ```
+
+## Run server on Local Machine
+```
+npm start
+```
+
+## Server
+Will be available on:
+```
+http://localhost:8000
+```
+
 
 
 ### Production Dependencies
