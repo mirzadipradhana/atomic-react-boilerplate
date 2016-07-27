@@ -1,0 +1,14 @@
+.navItem {
+  list-style: none;
+  padding: 0 0 0 16px;
+}
+
+.navItem a {
+  text-decoration: none;
+}
+
+.navItem a.active {
+  text-decoration: normal;
+  cursor: default;
+  color: #4daec9;
+}

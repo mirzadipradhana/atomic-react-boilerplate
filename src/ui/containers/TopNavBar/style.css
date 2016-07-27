@@ -1,0 +1,12 @@
+.navRoot {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  list-style: none;
+  padding: 0;
+}

@@ -1,11 +1,11 @@
 import styles from './style.css';
-import logo from '../../../assets/images/logo.png';
+import logo from '../../../assets/images/logo-dark.png';
 
-export default class App extends React.Component {
+class PageIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { test: 'foo' };
   }
+
   render() {
     return (
       <div className={styles.root}>
@@ -15,3 +15,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default PageIndex;

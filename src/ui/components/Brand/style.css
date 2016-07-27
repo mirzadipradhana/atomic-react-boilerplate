@@ -1,0 +1,28 @@
+.root {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.root li {
+  list-style: none;
+  margin: 0;
+  height: 100%;
+}
+
+.root .brandImage img {
+  height: 100%;
+  padding: 0 16px 0 0;
+}
+
+.root .brandName {
+  display: table;
+}
+
+.root .brandName span {
+  display: table-cell;
+  vertical-align: middle;
+}

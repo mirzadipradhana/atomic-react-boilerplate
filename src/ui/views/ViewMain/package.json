@@ -1,0 +1,5 @@
+{
+  "name": "ViewMain",
+  "private": true,
+  "main": "./ViewMain.jsx"
+}
