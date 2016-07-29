@@ -1,6 +1,6 @@
 import React from 'react';
-import Brand from '../../components/Brand';
-import NavBar from '../../containers/TopNavBar';
+import Brand from '~/src/client/ui/components/Brand';
+import NavBar from '~/src/client/ui/containers/TopNavBar';
 import styles from './style.css';
 
 const Header = ({ navigationItems }) => {

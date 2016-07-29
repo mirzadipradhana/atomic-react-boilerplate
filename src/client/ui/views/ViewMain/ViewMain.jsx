@@ -1,4 +1,4 @@
-import Header from '../../sections/Header';
+import Header from '~/src/client/ui/sections/Header';
 import styles from './style.css';
 
 const navItems = [
