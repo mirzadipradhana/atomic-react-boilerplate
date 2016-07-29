@@ -2,10 +2,10 @@
   "name": "atomic-react-boilerplate",
   "version": "0.1.0",
   "description": "React.JS atomic design boilerplate build by Webpack",
-  "main": "server/main.js",
+  "main": "src/server/main.js",
   "scripts": {
-    "start": "babel-node server",
-    "dev": "babel-node server"
+    "start": "babel-node src/server",
+    "dev": "babel-node src/server"
   },
   "keywords": [
     "es6",

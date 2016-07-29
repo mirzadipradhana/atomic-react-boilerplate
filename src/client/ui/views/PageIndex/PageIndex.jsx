@@ -1,5 +1,5 @@
 import styles from './style.css';
-import logo from '../../../assets/images/logo-dark.png';
+import logo from '../../../../shared/assets/images/logo-dark.png';
 
 class PageIndex extends React.Component {
   constructor(props) {

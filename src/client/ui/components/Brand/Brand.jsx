@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.css';
-import imgLogo from '../../../assets/images/logo-transparent.png';
+import imgLogo from '../../../../shared/assets/images/logo-transparent.png';
 
 const Brand = ({ brandName, brandImage }) => {
   const imgBrand = brandImage;

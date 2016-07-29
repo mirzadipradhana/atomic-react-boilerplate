@@ -3,7 +3,7 @@
 import Express from 'express';
 
 import Logger from './libs/logger';
-import { APP_SETUP } from '../.configs';
+import { APP_SETUP } from '../../.configs';
 import webpackHMR from './middlewares/webpackHMR.middleware';
 const webpackConfig = require('./webpack/webpack.config.dev');
 
