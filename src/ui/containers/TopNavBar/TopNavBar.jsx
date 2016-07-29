@@ -16,8 +16,8 @@ const TopNavBar = ({ navItems, onNavigate }) => {
   };
 
   return (
-    <div className={styles.navRoot}>
-      <ul className={styles.navContainer}>
+    <div className={styles.root}>
+      <ul className={styles.container}>
         {getNavigationItems(navItems)}
       </ul>
     </div>

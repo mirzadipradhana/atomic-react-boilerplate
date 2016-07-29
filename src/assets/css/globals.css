@@ -1,0 +1,13 @@
+@import "./variables.css";
+
+html, body {
+  /* call css variable using postcss-simple-vars */
+  padding: 0;
+  margin: 0;
+  background-color: $light-gray;
+}
+
+/* instantiate global css class using postcss */
+:global .container {
+  background-color: $dark-gray;
+}

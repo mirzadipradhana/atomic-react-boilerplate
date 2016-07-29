@@ -1,32 +1,29 @@
+@import "../../../assets/css/variables.css";
+
 .root {
   width: 100%;
   height: 40px;
   background-color: #222222;
-  color: #61dafb;
-}
+  color: $blue-react;
 
-.container {
-  width: 1200px;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-}
+  .container {
+    width: 1200px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
 
-.brand {
-  flex-grow: 1;
-  flex-basis: 0;
-  height: 100%;
-  width: 1000px;
-}
+    .brand {
+      flex-grow: 1;
+      flex-basis: 0;
+      height: 100%;
+      width: 1000px;
+    }
 
-.nav {
-  flex-grow: 1;
-  flex-basis: 0;
-  height: 100%;
-}
-
-.nav a {
-  color: #61dafb;
-  text-decoration: none;
+    .nav {
+      flex-grow: 1;
+      flex-basis: 0;
+      height: 100%;
+    }
+  }
 }

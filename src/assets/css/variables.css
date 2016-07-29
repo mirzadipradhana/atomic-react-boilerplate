@@ -1,0 +1,9 @@
+/* instantiate css variable using postcss-simple-vars */
+/* implement rgba css function from postcss-next */
+/* implement color css function from postcss-next */
+:root {
+  /* Colors */
+  $light-gray: color(white lightness(99%));
+  $dark-gray: rgba(34, 34, 34, 1);
+  $blue-react: rgba(97, 218, 251, 1);
+}

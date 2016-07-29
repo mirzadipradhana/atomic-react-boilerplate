@@ -1,14 +1,17 @@
+@import "../../../../../assets/css/variables.css";
+
 .navItem {
   list-style: none;
   padding: 0 0 0 16px;
-}
 
-.navItem a {
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+    color: $blue-react;
 
-.navItem a.active {
-  text-decoration: normal;
-  cursor: default;
-  color: #4daec9;
+    &.active {
+      text-decoration: normal;
+      cursor: default;
+      color: #4daec9;
+    }
+  }
 }

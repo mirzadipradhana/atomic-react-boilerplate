@@ -12,10 +12,11 @@ const commonLoaders = [
 	{ test: /\.png$/, loader: 'url-loader' },
 	{ test: /\.jpg$/, loader: 'file-loader' },
 	{ test: /\.json$/, loader: 'json-loader' },
-	{ test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader'), include: PATH.ASSETS },
-	{ test: /\.css$/, loader: 'style-loader!css-loader?modules&localIdentName=[local]--[hash:base64:4]', exclude: PATH.ASSETS }
+	{ test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader'), include: PATH.ASSETS },
+	{ test: /\.css$/, loader: 'style-loader!css-loader?modules&localIdentName=[local]__[hash:base64:4]!postcss-loader', exclude: PATH.ASSETS }
 ];
-const extractCSSAsset = new ExtractTextPlugin('stylesheet/global.css');
+
+const extractCSSAsset = new ExtractTextPlugin('stylesheet/globals.css');
 const buildPublicPath = '/server';
 
 module.exports = {
@@ -52,6 +53,14 @@ module.exports = {
   ],
   module: {
     loaders: commonLoaders
+  },
+  postcss: function plugins(bundler) {
+    return [
+      require('postcss-import')({ addDependencyTo: bundler }),
+      require('postcss-cssnext')({ autoprefixer: { browsers: ['last 2 versions'] }, customProperties: false }),
+      require('postcss-nested')(),
+      require('postcss-simple-vars')()
+    ];
   },
   resolve: {
     extension: ['', '.js', '.jsx']

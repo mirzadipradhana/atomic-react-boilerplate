@@ -1,3 +1,7 @@
+@import "../../../assets/css/variables.css";
+
 .root {
-    background-color: #ffffff;
+  background-color: #ffffff;
+  color: $blue-react;
+  font-weight: bold;
 }
