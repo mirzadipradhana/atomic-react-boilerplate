@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './style.css';
-import imgLogo from '~/src/shared/assets/images/logo-transparent.png';
+import defaultImgBrand from './images/logo-default.png';
 
 const Brand = ({ brandName, brandImage }) => {
-  const imgBrand = brandImage;
+  const imgBrand = brandImage ? brandImage : defaultImgBrand;
+
   return (
     <ul className={styles.root}>
       <li className={styles.brandImage}><img src={imgBrand} alt="logo" /></li>
@@ -14,11 +15,7 @@ const Brand = ({ brandName, brandImage }) => {
 
 Brand.propTypes = {
   brandName: React.PropTypes.string,
-  brandImage: React.PropTypes.string
-};
-
-Brand.defaultProps = {
-  brandImage: imgLogo
+  brandImage: React.PropTypes.object
 };
 
 export default Brand;
