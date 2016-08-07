@@ -5,6 +5,7 @@ html, body {
   padding: 0;
   margin: 0;
   background-color: $light-gray;
+  width: 100vw;
 }
 
 /* instantiate global css class using postcss */
