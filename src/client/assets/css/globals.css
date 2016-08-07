@@ -1,4 +1,16 @@
 @import "./variables.css";
+@font-face {
+    font-family: systemFontLight;
+    src: url(../fonts/AvenirNext-UltraLight.ttf);
+}
+@font-face {
+    font-family: systemFontRegular;
+    src: url(../fonts/AvenirNext-Regular.ttf);
+}
+@font-face {
+    font-family: systemFontBold;
+    src: url(../fonts/AvenirNext-Medium.ttf);
+}
 
 html, body {
   /* call css variable using postcss-simple-vars */
@@ -6,6 +18,7 @@ html, body {
   margin: 0;
   background-color: $light-gray;
   width: 100vw;
+  font-family: systemFontLight;
 }
 
 /* instantiate global css class using postcss */

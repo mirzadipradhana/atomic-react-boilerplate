@@ -13,11 +13,15 @@ const commonLoaders = [
 	{ test: /\.jpg$/, loader: 'file-loader' },
 	{ test: /\.json$/, loader: 'json-loader' },
 	{ test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader'), include: PATH.ASSETS },
-	{ test: /\.css$/, loader: 'style-loader!css-loader?modules&localIdentName=[local]__[hash:base64:4]!postcss-loader', exclude: PATH.ASSETS }
+	{ test: /\.css$/, loader: 'style-loader!css-loader?modules&localIdentName=[local]__[hash:base64:4]!postcss-loader', exclude: PATH.ASSETS },
+  {
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      loader: 'file?name=fonts/[name].[ext]'
+  }
 ];
 
 const extractCSSAsset = new ExtractTextPlugin('stylesheet/globals.css');
-const buildPublicPath = '/server';
+const buildPublicPath = '/dist';
 
 module.exports = {
   entry: [
