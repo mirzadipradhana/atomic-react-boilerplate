@@ -19,7 +19,7 @@ const Header = ({ navigationItems, brandImage }) => {
 
 Header.propTypes = {
   navigationItems: React.PropTypes.array,
-  brandImage: React.PropTypes.object
+  brandImage: React.PropTypes.string
 };
 
 
