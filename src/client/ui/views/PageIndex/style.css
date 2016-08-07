@@ -1,5 +1,5 @@
-@import "../../../../shared/assets/css/variables.css";
-@import '../../../../shared/assets/css/mixins.css';
+@import '../../../assets/css/variables.css';
+@import '../../../assets/css/mixins.css';
 
 .root {
   @mixin card;

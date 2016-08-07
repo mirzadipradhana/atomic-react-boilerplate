@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.css';
-import imgLogo from '~/src/shared/assets/images/logo-transparent.png';
+import defaultImgBrand from './images/logo-default.png';
 
 const Brand = ({ brandName, brandImage }) => {
   const imgBrand = brandImage;
@@ -18,7 +18,7 @@ Brand.propTypes = {
 };
 
 Brand.defaultProps = {
-  brandImage: imgLogo
+  brandImage: defaultImgBrand
 };
 
 export default Brand;
