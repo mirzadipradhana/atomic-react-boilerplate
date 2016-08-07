@@ -5,6 +5,7 @@
   height: 40px;
   background-color: #222222;
   color: $blue-react;
+  padding: 8px 0;
 
   .container {
     width: 1200px;
