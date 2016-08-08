@@ -9,7 +9,7 @@ import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 
 const commonLoaders = [
 	{ test: /\.(js|jsx)$/, loader: 'babel-loader', include: PATH.CLIENT_SRC },
-	{ test: /\.png$/, loader: 'url-loader' },
+	{ test: /\.png$/, loader: 'file-loader' },
 	{ test: /\.jpg$/, loader: 'file-loader' },
 	{ test: /\.json$/, loader: 'json-loader' },
 	{ test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader'), include: PATH.ASSETS },
@@ -21,7 +21,7 @@ const commonLoaders = [
 ];
 
 const extractCSSAsset = new ExtractTextPlugin('stylesheet/globals.css');
-const buildPublicPath = '/dist';
+const buildPublicPath = '/dist/';
 
 module.exports = {
   entry: [
