@@ -2,10 +2,12 @@ import Brand from '~/src/client/ui/components/Brand';
 import NavBar from '~/src/client/ui/containers/TopNavBar';
 import styles from './style.css';
 
-const Header = ({ navigationItems, brandImage, brandName }) => {
+const Header = ({ navigationItems, brandImage, brandName, className }) => {
+  const headerStyle = className ? `${styles.container} ${className}` : styles.container;
+    
   return (
     <div className={styles.root}>
-      <div className={styles.container}>
+      <div className={headerStyle}>
         <div className={styles.brand}>
           <Brand brandName={brandName ? brandName: null} brandImage={brandImage ? brandImage : null} />
         </div>
@@ -20,7 +22,8 @@ const Header = ({ navigationItems, brandImage, brandName }) => {
 Header.propTypes = {
   navigationItems: React.PropTypes.array,
   brandImage: React.PropTypes.string,
-  brandName: React.PropTypes.string
+  brandName: React.PropTypes.string,
+  className: React.PropTypes.string,
 };
 
 
