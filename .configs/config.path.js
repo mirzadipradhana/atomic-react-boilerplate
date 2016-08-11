@@ -11,5 +11,5 @@ module.exports = {
   CLIENT_SRC: Path.join(__dirname, '..', 'src/client/'),
   SERVER_SRC: Path.join(__dirname, '..', 'src/server'),
   TEMPLATES: Path.join(__dirname, '..', 'src/server/templates'),
-  WEBPACK_OUTPUT: Path.join(__dirname, '..', 'dist/server')
+  WEBPACK_OUTPUT: Path.join(__dirname, '..', 'dist')
 };

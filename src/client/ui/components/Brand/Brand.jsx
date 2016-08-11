@@ -15,7 +15,7 @@ const Brand = ({ brandName, brandImage }) => {
 
 Brand.propTypes = {
   brandName: React.PropTypes.string,
-  brandImage: React.PropTypes.object
+  brandImage: React.PropTypes.string
 };
 
 export default Brand;
