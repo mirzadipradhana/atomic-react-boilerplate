@@ -8,6 +8,7 @@ const TopNavBar = ({ navItems, onNavigate }) => {
         <NavItem
           key={`navItem-${index}`}
           path={item.path}
+          anchor={item.anchor}
           name={item.name}
           onNavigate={onNavigate}
         />

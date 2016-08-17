@@ -5,7 +5,12 @@ Starter template for react and webpack which adapting [atomic design methodology
 ## Features
 
 * Compilation with webpack
-* React and jsx
+* Webpack HMR: update your changes without losing your state.
+* React with jsx
+* CSS modules: All style names are scoped locally by default, modular and reusable CSS!
+* Postcss: Transforming styles with JS plugins. Use future CSS today with postcss plugins, solve your CSS problems!
+* Linter: Validate your JS code and check for errors. Avoid your code basic mistakes!
+
 
 ## Local Installation
 
