@@ -58,6 +58,7 @@ http://localhost:8000
 | **Dependency** | **Use** |
 |----------|-------|
 |express|Serves development and production builds|
+|[material-ui](https://github.com/callemall/material-ui)|A Set of React Components that Implement Google's Material Design|
 |react|React library |
 |react-dom|React library for DOM rendering |
 
