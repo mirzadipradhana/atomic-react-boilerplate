@@ -4,8 +4,9 @@
   "description": "React.JS atomic design boilerplate build by Webpack",
   "main": "src/server/main.js",
   "scripts": {
-    "start": "babel-node src/server",
-    "dev": "babel-node src/server"
+    "start": "NODE_ENV=production webpack --config ./src/server/webpack/webpack.config.prod.js --progress --profile --colors && ./node_modules/.bin/babel-node src/server",
+    "dev": "NODE_ENV=development ./node_modules/.bin/babel-node src/server",
+    "build": "NODE_ENV=production webpack --config ./src/server/webpack/webpack.config.prod.js --progress --profile --colors"
   },
   "keywords": [
     "es6",
@@ -16,14 +17,6 @@
   "author": "Mirza Adipradhana",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0",
-    "material-ui": "^0.15.4",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "react-router": "^2.6.0",
-    "react-tap-event-plugin": "^1.0.0"
-  },
-  "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.6.5",
     "babel-eslint": "^6.1.2",
@@ -32,19 +25,17 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-root-import": "^4.0.1",
+    "bluebird": "^3.4.6",
     "chalk": "^1.1.3",
     "css-loader": "^0.23.1",
     "dotenv": "^2.0.0",
-    "eslint": "^3.5.0",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.14.0",
-    "eslint-plugin-jsx-a11y": "^2.2.1",
-    "eslint-plugin-react": "^6.2.0",
+    "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.21.0",
     "ip": "^1.1.3",
     "json-loader": "^0.5.4",
+    "material-ui": "^0.15.4",
     "postcss-cssnext": "^2.7.0",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
@@ -52,9 +43,21 @@
     "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^3.0.0",
     "progress-bar-webpack-plugin": "^1.8.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-router": "^2.6.0",
+    "react-tap-event-plugin": "^1.0.0",
+    "stats-webpack-plugin": "^0.4.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1",
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-react": "^6.2.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.0"
   }
