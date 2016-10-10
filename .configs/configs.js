@@ -1,5 +1,5 @@
-import APP_SETUP from './config.appSetup';
-import PATH from './config.path';
+var APP_SETUP = require('./config.appSetup');
+var PATH = require('./config.path');
 
 module.exports = {
     APP_SETUP: APP_SETUP,

@@ -6,7 +6,7 @@
 
 require('dotenv').config({silent: true});
 
-let host, port, protocol, isDev;
+var host, port, protocol, isDev;
 if (process.env.NODE_ENV === 'production') {
   isDev = false;
   host = process.env.PROD_HOST;
