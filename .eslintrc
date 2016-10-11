@@ -18,7 +18,9 @@
     "new-cap": ["off"],
     "consistent-return": ["off"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "no-unused-expressions": ["error", { "allowShortCircuit": true }]
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
+    "react/forbid-prop-types": ["warn"],
+    "react/prefer-stateless-function": ["warn"]
   },
   "globals": {
     "React": true,
