@@ -4,12 +4,12 @@ import styles from './style.css';
 const navItems = [
   {
     name: 'Home',
-    path: '/'
+    path: '/',
   },
   {
     name: 'About',
-    path: '/about'
-  }
+    path: '/about',
+  },
 ].reverse();
 
 class ViewMain extends React.Component {
@@ -20,7 +20,7 @@ class ViewMain extends React.Component {
   render() {
     return (
       <div className={styles.root}>
-        <Header navigationItems={navItems} />
+        <Header navigationItems={navItems} location={this.props.location} />
         <div className={styles.content}>
           {this.props.children}
         </div>
@@ -30,7 +30,8 @@ class ViewMain extends React.Component {
 }
 
 ViewMain.propTypes = {
-  children: React.PropTypes.object.isRequired
+  children: React.PropTypes.object.isRequired,
+  location: React.PropTypes.object,
 };
 
 export default ViewMain;

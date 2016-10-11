@@ -1,5 +1,9 @@
 @import "../../../../../assets/css/variables.css";
 
+:root {
+  $active-color: #4daec9
+}
+
 .navItem {
   list-style: none;
   padding: 0 0 0 16px;
@@ -7,11 +11,23 @@
   a {
     text-decoration: none;
     color: $blue-react;
+    cursor: pointer;
+    position: relative;
 
     &.active {
       text-decoration: normal;
       cursor: default;
-      color: #4daec9;
+      color: $active-color;
+
+      &:before {
+        content: '';
+        position: absolute;
+        background-color: $active-color;
+        width: 100%;
+        height: 4px;
+        top: 28px;
+        left: 0px;
+      }
     }
   }
 }

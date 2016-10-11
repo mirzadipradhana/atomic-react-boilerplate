@@ -1,14 +1,14 @@
 import { Link } from 'react-router';
 import styles from './style.css';
 
-const NavItem = ({ name, path, anchor }) => {
+const NavItem = ({ name, path, anchor, isActive }) => {
   const navigateToAnchor = () => {
     window.document.getElementById(anchor).scrollIntoView()
   };
-  
+
   const NavButton = anchor
-    ? <a onClick={navigateToAnchor}>{name}</a>
-    : <Link to={path} activeClassName={styles.active}>
+    ? <a href={`#${anchor}`} onClick={navigateToAnchor} className={isActive ? styles.active : ''}>{name}</a>
+    : <Link to={path} activeClassName={isActive ? styles.active : ''}>
         {name}
       </Link>;
 
@@ -21,12 +21,13 @@ const NavItem = ({ name, path, anchor }) => {
 
 NavItem.defaultProps = {
   anchor: null,
-}
+};
 
 NavItem.propTypes = {
   name: React.PropTypes.string,
   path: React.PropTypes.string,
   anchor: React.PropTypes.string,
+  isActive: React.PropTypes.bool,
 };
 
 export default NavItem;
