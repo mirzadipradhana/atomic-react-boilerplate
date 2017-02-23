@@ -10,6 +10,10 @@ const navItems = [
     name: 'About',
     path: '/about',
   },
+  {
+    name: 'Redux Examples',
+    path: '/redux',
+  },
 ].reverse();
 
 class ViewMain extends React.Component {

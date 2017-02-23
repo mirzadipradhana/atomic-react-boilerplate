@@ -1,0 +1,5 @@
+{
+  "name": "PageRedux",
+  "private": true,
+  "main": "./PageRedux.jsx"
+}

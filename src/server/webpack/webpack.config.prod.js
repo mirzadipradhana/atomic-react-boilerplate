@@ -25,6 +25,7 @@ var extractCSSModules = new ExtractTextPlugin('stylesheet/app.css');
 
 module.exports = {
   entry: [
+    'babel-polyfill',
     `${PATH.CLIENT_SRC}/main.js`
   ],
   output: {

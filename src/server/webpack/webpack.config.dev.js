@@ -25,6 +25,7 @@ const buildPublicPath = '/dist/';
 
 module.exports = {
   entry: [
+    'babel-polyfill',
     'webpack-hot-middleware/client', // connects to the HMR server to receive notifications when the bundle rebuilds and then updates your client bundle accordingly
     `${PATH.CLIENT_SRC}/main.js`
   ],
