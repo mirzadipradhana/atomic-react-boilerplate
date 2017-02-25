@@ -9,6 +9,7 @@ class PageRedux extends React.Component {
     this.handleDecrementClick = this.handleDecrementClick.bind(this);
     this.handleIncrementOddClick = this.handleIncrementOddClick.bind(this);
     this.handleIncrementAsync = this.handleIncrementAsync.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
   }
 
   handleIncrementClick() {
@@ -27,6 +28,10 @@ class PageRedux extends React.Component {
     this.props.dispatch({ type: 'INCREMENT_ASYNC' });
   }
 
+  handleOpenModal() {
+    this.props.dispatch({ type: 'OPEN_MODAL', payload: { modal: false } });
+  }
+
   render() {
     return (
       <div>
@@ -38,9 +43,13 @@ class PageRedux extends React.Component {
           <RaisedButton label="-" onClick={this.handleDecrementClick} />
           <RaisedButton label="+ if odd" onClick={this.handleIncrementOddClick} />
         </div>
-        <hr/>
+        <hr />
         <div>
           <RaisedButton label="+ async" onClick={this.handleIncrementAsync} />
+        </div>
+        <hr />
+        <div>
+          <RaisedButton label="open modal" onClick={this.handleOpenModal} />
         </div>
       </div>
     );
