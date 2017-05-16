@@ -6,7 +6,7 @@ import Path from 'path';
 
 import Logger from './libs/logger';
 import { APP_SETUP } from '../../.configs';
-import webpackHMR from './middlewares/webpackHMR.middleware';
+const webpackHMR = process.env.NODE_ENV !== 'production' ? require('./middlewares/webpackHMR.middleware') : null;
 const webpackConfig = process.env.NODE_ENV === 'production' ? require('./webpack/webpack.config.prod') : require('./webpack/webpack.config.dev');
 
 const app = Express();
