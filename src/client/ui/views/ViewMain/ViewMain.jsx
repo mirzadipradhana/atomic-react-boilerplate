@@ -1,6 +1,8 @@
+import { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Header from '~/src/client/ui/sections/Header';
 import Modal from '~/src/client/ui/sections/Modal';
+import logo from '~/src/client/assets/images/bobowl-logo.svg';
 import styles from './style.css';
 
 const navItems = [
@@ -11,10 +13,6 @@ const navItems = [
   {
     name: 'About',
     path: '/about',
-  },
-  {
-    name: 'Redux Examples',
-    path: '/redux',
   },
 ].reverse();
 
@@ -32,7 +30,7 @@ class ViewMain extends React.Component {
   render() {
     return (
       <div className={styles.root}>
-        <Header navigationItems={navItems} location={this.props.location} />
+        <Header navigationItems={navItems} location={this.props.location} brandImage={logo} hideBrandImage />
         <div className={styles.content}>
           {this.props.children}
         </div>
@@ -47,13 +45,13 @@ ViewMain.defaultProps = {
 };
 
 ViewMain.propTypes = {
-  dispatch: React.PropTypes.object,
-  children: React.PropTypes.object.isRequired,
-  location: React.PropTypes.object,
-  modal: React.PropTypes.shape({
-    open: React.PropTypes.bool.isRequired,
-    modal: React.PropTypes.bool.isRequired,
-    actions: React.PropTypes.array,
+  dispatch: PropTypes.func,
+  children: PropTypes.object.isRequired,
+  location: PropTypes.object,
+  modal: PropTypes.shape({
+    open: PropTypes.bool.isRequired,
+    modal: PropTypes.bool.isRequired,
+    actions: PropTypes.array,
   }),
 };
 

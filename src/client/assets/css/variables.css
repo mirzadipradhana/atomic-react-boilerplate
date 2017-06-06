@@ -3,10 +3,15 @@
 /* implement color css function from postcss-next */
 :root {
   /* Colors */
-  $light-gray: color(white lightness(99%));
+  $black: rgba(0, 0, 0, 1);
+  $white: rgba(255, 255, 255, 1);
+  $light-gray: color(white lightness(80%));
+  $medium-gray: color(white lightness(50%));
   $dark-gray: rgba(34, 34, 34, 1);
   $light-gray: rgba(211, 211, 211, 1);
   $blue-react: rgba(97, 218, 251, 1);
+
+  $bobowl: rgba(216, 180, 40, 1);
 
   /* Border */
   $corner-radius: 4px;

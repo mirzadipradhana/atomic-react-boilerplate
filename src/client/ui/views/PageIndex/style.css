@@ -7,6 +7,22 @@
   background-color: #ffffff;
   color: $blue-react;
   font-weight: bold;
+  border: none;
+
+  text-align: center;
+}
+
+.logo {
+  width: 26rem;
+  height: 26rem;
+}
+
+.heading {
+  margin-bottom: 0;
+}
+
+.content {
+  margin-top: 0;
 }
 
 .button {
