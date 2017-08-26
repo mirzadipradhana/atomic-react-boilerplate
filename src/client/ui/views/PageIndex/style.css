@@ -3,22 +3,29 @@
 
 .root {
   @mixin card;
-
-  background-color: #ffffff;
   color: $blue-react;
   font-weight: bold;
   border: none;
 
   text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .logo {
-  width: 26rem;
-  height: 26rem;
+  width: 25rem;
+  height: 9.4rem;
 }
 
 .heading {
+  margin-top: 1.2rem;
   margin-bottom: 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-stretch: wider;
+  font-size: 2.2rem;
+  letter-spacing: 1rem;
 }
 
 .content {

@@ -6,6 +6,7 @@
   background-color: rgba(0, 0, 0, 0);
   color: $bobowl;
   padding: 8px 0;
+  position: fixed;
 
   .container {
     width: 1200px;

@@ -22,7 +22,7 @@ const Header = ({ navigationItems, brandImage, hideBrandImage, brandName, classN
 Header.propTypes = {
   navigationItems: React.PropTypes.arrayOf(React.PropTypes.object),
   location: React.PropTypes.object,
-  hideBrandImage: React.PropTypes.string,
+  hideBrandImage: React.PropTypes.bool,
   brandImage: React.PropTypes.string,
   brandName: React.PropTypes.string,
   className: React.PropTypes.string,

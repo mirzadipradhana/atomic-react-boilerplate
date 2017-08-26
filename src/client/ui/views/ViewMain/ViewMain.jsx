@@ -30,11 +30,13 @@ class ViewMain extends React.Component {
   render() {
     return (
       <div className={styles.root}>
-        <Header navigationItems={navItems} location={this.props.location} brandImage={logo} hideBrandImage />
-        <div className={styles.content}>
-          {this.props.children}
+        <div className={styles.bg}>
+          <Header navigationItems={navItems} location={this.props.location} brandImage={logo} />
+          <div className={styles.content}>
+            {this.props.children}
+          </div>
+          <Modal {...this.props.modal} onClose={this.handleCloseModal} />
         </div>
-        <Modal {...this.props.modal} onClose={this.handleCloseModal} />
       </div>
     );
   }
