@@ -53,18 +53,6 @@
       flex-grow: 1;
       flex-basis: 0;
       height: 100%;
-
-      @media (--iphone4-potrait) {
-        margin-left: 10px;
-      }
-
-      @media (--iphone5-potrait) {
-        margin-right: 25px;
-      }
-
-      @media (--iphone6-potrait) {
-        margin-right: 25px;
-      }
     }
   }
 }
