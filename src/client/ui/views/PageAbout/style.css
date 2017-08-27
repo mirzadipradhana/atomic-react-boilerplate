@@ -2,16 +2,4 @@
 
 .root {
   margin-top: 5rem;
-
-  h1 {
-    color: #ffffff;
-  }
-
-  p {
-    color: #ffffff;
-
-    a {
-      color: $bobowl;
-    }
-  }
 }
