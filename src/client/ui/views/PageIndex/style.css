@@ -2,27 +2,71 @@
 @import '../../../assets/css/mixins.css';
 
 .root {
-  @mixin card;
   color: $blue-react;
   font-weight: bold;
   border: none;
   text-align: center;
   width: calc(100% - 2.4rem - 1.6rem);
   height: calc(100vh - 10rem);
+
+
+  @media (--iphone5-potrait) {
+    width: 100%;
+  }
 }
 
 .bg {
   width: 100%;
   height: calc(100vh);
-  background: url('../../../assets/images/bg-darker.jpg') center fixed;
+  background: url('../../../assets/images/bg-darker.jpg') fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   position: fixed;
   top: 0;
   left: 0;
+
+  @media (--iphone4-potrait) {
+    background-size: cover;
+  }
+
+  @media (--iphone5-potrait) {
+    background-size: cover;
+    height: calc(100vh + 220px);
+  }
+
+  @media (--iphone6-potrait) {
+    background-size: cover;
+  }
+}
+
+.content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0);
+
+  @media (--iphone5-potrait) {
+    width: 100%;
+    top: 65%;
+  }
 }
 
 .logo {
   width: 25rem;
   height: 9.4rem;
+
+  @media (--iphone5-potrait) {
+    width: 16rem;
+    height: 7rem;
+    /* styles for small viewport */
+  }
+
+  @media (--iphone6-potrait) {
+    width: 19rem;
+    height: 8rem;
+    /* styles for small viewport */
+  }
 }
 
 .heading {
@@ -33,13 +77,21 @@
   font-stretch: wider;
   font-size: 2.2rem;
   letter-spacing: 1rem;
-}
 
-.content {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0);
+  @media (--iphone5-potrait) {
+    margin-top: 0rem;
+    margin-left: 15px;
+    font-size: 1.4rem;
+    letter-spacing: 0.8rem;
+    /* styles for small viewport */
+  }
+
+  @media (--iphone6-potrait) {
+    margin-top: 0rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.8rem;
+    /* styles for small viewport */
+  }
 }
 
 .button {
