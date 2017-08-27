@@ -6,11 +6,18 @@
   color: $blue-react;
   font-weight: bold;
   border: none;
-
   text-align: center;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  width: calc(100% - 2.4rem - 1.6rem);
+  height: calc(100vh - 10rem);
+}
+
+.bg {
+  width: 100%;
+  height: calc(100vh);
+  background: url('../../../assets/images/bg-darker.jpg') center fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .logo {
@@ -29,7 +36,10 @@
 }
 
 .content {
-  margin-top: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .button {

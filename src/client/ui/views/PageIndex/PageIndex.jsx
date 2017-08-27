@@ -11,9 +11,12 @@ class PageIndex extends React.Component {
   render() {
     return (
       <div className={styles.root}>
-        <img src={logo} alt="logo" className={styles.logo} />
-        <div>
-          <h1 className={styles.heading}>RICE BOWL SPECIALITIES</h1>
+        <div className={styles.bg}></div>
+        <div className={styles.content}>
+          <img src={logo} alt="logo" className={styles.logo} />
+          <div>
+            <h1 className={styles.heading}>RICE BOWL SPECIALITIES</h1>
+          </div>
         </div>
       </div>
     );

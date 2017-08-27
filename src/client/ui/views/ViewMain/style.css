@@ -4,13 +4,8 @@
 
   .content {
     width: 1200px;
-    height: 100vh;
+    height: calc(100vh-50px);
     margin: 0 auto;
     padding: 16px;
-  }
-
-  .bg {
-    background: url('../../../assets/images/bg-darker.jpg') center;
-    background-position-y: -200px;
   }
 }
