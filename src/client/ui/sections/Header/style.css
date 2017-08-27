@@ -1,4 +1,5 @@
 @import "../../../assets/css/variables.css";
+@import '../../../assets/css/mixins.css';
 
 .root {
   width: 100%;
@@ -16,10 +17,34 @@
     flex-direction: row;
     margin: 0 auto;
 
+    @media (--iphone4-potrait) {
+      width: 100%;
+    }
+
+    @media (--iphone5-potrait) {
+      width: 100%;
+    }
+
+    @media (--iphone6-potrait) {
+      width: 100%;
+    }
+
     .brand {
       flex-grow: 1;
       flex-basis: 0;
       height: 100%;
+
+      @media (--iphone4-potrait) {
+        margin-left: 10px;
+      }
+
+      @media (--iphone5-potrait) {
+        margin-left: 10px;
+      }
+
+      @media (--iphone6-potrait) {
+        margin-left: 10px;
+      }
     }
 
     .nav {
