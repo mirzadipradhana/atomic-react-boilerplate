@@ -22,11 +22,13 @@
     }
 
     @media (--iphone5-potrait) {
-      width: 100%;
+      width: calc(100% - 20px);
+      margin: 0;
     }
 
     @media (--iphone6-potrait) {
-      width: 100%;
+      width: calc(100% - 20px);
+      margin: 0;
     }
 
     .brand {
@@ -51,6 +53,18 @@
       flex-grow: 1;
       flex-basis: 0;
       height: 100%;
+
+      @media (--iphone4-potrait) {
+        margin-left: 10px;
+      }
+
+      @media (--iphone5-potrait) {
+        margin-right: 25px;
+      }
+
+      @media (--iphone6-potrait) {
+        margin-right: 25px;
+      }
     }
   }
 }
