@@ -6,6 +6,7 @@ import Webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 const commonLoaders = [
 	{ test: /\.(js|jsx)$/, loader: 'babel-loader', include: PATH.CLIENT_SRC },
@@ -40,11 +41,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `${PATH.TEMPLATES}/index.tpl.html`,
       inject: 'body',
-      filename: 'index.html'
+      filename: 'index.html',
     }),
     new Webpack.ProvidePlugin({
       'React': 'react',
-      'ReactDOM': 'react-dom'
+      'ReactDOM': 'react-dom',
     }),
     new Webpack.optimize.OccurenceOrderPlugin(),
     new Webpack.HotModuleReplacementPlugin(), // enabled HMR
@@ -52,12 +53,13 @@ module.exports = {
     new Webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(APP_SETUP.IS_DEV)
-      }
+      },
     }),
-    extractCSSAsset
+    new BundleAnalyzerPlugin(),
+    extractCSSAsset,
   ],
   module: {
-    loaders: commonLoaders
+    loaders: commonLoaders,
   },
   postcss: function plugins(bundler) {
     return [

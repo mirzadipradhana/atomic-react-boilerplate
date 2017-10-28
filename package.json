@@ -68,6 +68,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-react": "^6.2.0",
     "redux-devtools": "^3.3.2",
+    "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.0"
   }
