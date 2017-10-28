@@ -3,7 +3,7 @@
   width: 100%;
 
   .content {
-    width: 1200px;
+    width: calc(100% - (2*16px));
     margin: 0 auto;
     padding: 16px;
   }

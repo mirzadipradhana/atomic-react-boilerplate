@@ -2,12 +2,12 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
 
-import reduxReducer from './ui/views/PageRedux/reducer';
+import appReducer from './ui/views/ViewMain/reducer';
 import rootSaga from './rootSaga';
 
 const reducer = combineReducers(
   {
-    redux: reduxReducer,
+    app: appReducer,
     routing: routerReducer,
   }
 );
