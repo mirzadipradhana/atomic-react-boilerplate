@@ -32,6 +32,13 @@ if (process.env.NODE_ENV !== 'production') {
   console.log(Path.join(__dirname, '../..', '/dist'));
 
   app.use(Express.static(Path.join(__dirname, '../..', '/dist'), { maxAge: APP_SETUP.CACHE_AGE }));
+
+  app.get('*.js', (req, res, next) => {
+    req.url = `${req.url}.gz`;
+    res.set('Content-Encoding', 'gzip');
+    next();
+  });
+
   app.get('*', (req, res) => {
     res.sendFile(Path.join(__dirname, '../..', 'dist/index.html'));
   });

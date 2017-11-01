@@ -6,6 +6,7 @@ var Webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var CompressionPlugin = require('compression-webpack-plugin');
 
 const BUILD_TARGET = 'dist';
 
@@ -37,6 +38,7 @@ module.exports = {
       compress: { warnings: false },
       comments: false,
     }),
+    new CompressionPlugin({ test: /\.js/ }),
     new Webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
