@@ -5,39 +5,25 @@ import Webpack from 'webpack';
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 
-const commonLoaders = [
-	{ test: /\.(js|jsx)$/, loader: 'babel-loader', include: PATH.CLIENT_SRC },
-	{ test: /\.png$/, loader: 'file-loader' },
-	{ test: /\.jpg$/, loader: 'file-loader' },
-	{ test: /\.json$/, loader: 'json-loader' },
-	{ test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader'), include: PATH.ASSETS },
-	{ test: /\.css$/, loader: 'style-loader!css-loader?modules&localIdentName=[local]__[hash:base64:4]!postcss-loader', exclude: PATH.ASSETS },
-  {
-      test: /\.(eot|svg|ttf|woff|woff2)$/,
-      loader: 'file?name=fonts/[name].[ext]'
-  }
-];
-
-const extractCSSAsset = new ExtractTextPlugin('stylesheet/globals.css');
-const buildPublicPath = '/dist/';
+const BUILD_TARGET = 'dist';
 
 module.exports = {
   entry: [
-    'babel-polyfill',
+    'babel-polyfill', // Support promise for IE browser (for dev)
     'webpack-hot-middleware/client', // connects to the HMR server to receive notifications when the bundle rebuilds and then updates your client bundle accordingly
-    `${PATH.CLIENT_SRC}/main.js`
+    `${PATH.CLIENT_SRC}/main.js`,
   ],
   devtool: 'eval-source-map',
   output: {
-    path: PATH.WEBPACK_OUTPUT,
+    path: `${PATH.ROOT}/${BUILD_TARGET}/`,
     filename: 'bundle.js',
-    publicPath: buildPublicPath
+    publicPath: `/${BUILD_TARGET}/`,
   },
   plugins: [
-    new ProgressBarPlugin(),
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: `${PATH.TEMPLATES}/index.tpl.html`,
       inject: 'body',
@@ -47,31 +33,58 @@ module.exports = {
       'React': 'react',
       'ReactDOM': 'react-dom',
     }),
-    new Webpack.optimize.OccurenceOrderPlugin(),
+    new Webpack.optimize.OccurrenceOrderPlugin(),
+    new Webpack.NamedModulesPlugin(),
     new Webpack.HotModuleReplacementPlugin(), // enabled HMR
-    new Webpack.NoErrorsPlugin(),
+    new Webpack.NoEmitOnErrorsPlugin(),
     new Webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(APP_SETUP.IS_DEV)
       },
     }),
     new BundleAnalyzerPlugin(),
-    extractCSSAsset,
+    new ExtractTextPlugin('stylesheet/[name].css'),
   ],
   module: {
-    loaders: commonLoaders,
-  },
-  postcss: function plugins(bundler) {
-    return [
-      require('postcss-import')({ addDependencyTo: bundler }),
-      require('postcss-cssnext')({ autoprefixer: { browsers: ['last 2 versions'] }, customProperties: false }),
-      require('postcss-mixins')({ mixinsFiles: PATH.ASSETS + '/css/mixins.css'} ),
-      require('postcss-nested')(),
-      require('postcss-simple-vars')()
-    ];
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        include: PATH.CLIENT_SRC,
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: 'file-loader',
+      },
+      {
+        test: /\.json$/,
+        use: 'json-loader',
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                importLoaders: 1,
+                localIdentName: '[name]__[local].[hash:base64:4]',
+              },
+            },
+            'postcss-loader',
+          ],
+        }),
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: 'file-loader?name=fonts/[name].[ext]',
+      },
+    ],
   },
   resolve: {
-    extension: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
-  target: 'web'
+  target: 'web',
 };

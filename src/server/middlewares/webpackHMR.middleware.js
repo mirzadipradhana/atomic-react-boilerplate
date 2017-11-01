@@ -15,17 +15,21 @@ module.exports = (options) => {
       timings: true,
       chunks: false,
       chunkModules: false,
-      modules: false
-    }
+      modules: false,
+    },
   });
 
   app.use(middleware);
   app.use(WebpackHotMiddleware(builder));
 
-  app.get('*', (req, res) => {
-    res.write(middleware.fileSystem.readFileSync(Path.join(builder.outputPath, 'index.html')));
-    res.end();
-  });
+  app.use('*', function (req, res, next) {
+    const filename = Path.join(builder.outputPath, 'index.html')
+
+    middleware.waitUntilValid(() => {
+      res.write(middleware.fileSystem.readFileSync(filename));
+      res.end();
+    })
+  })
 
   return app;
 }
