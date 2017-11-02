@@ -13,7 +13,8 @@ const BUILD_TARGET = 'dist';
 module.exports = {
   entry: [
     'babel-polyfill', // Support promise for IE browser (for dev)
-    'webpack-hot-middleware/client', // connects to the HMR server to receive notifications when the bundle rebuilds and then updates your client bundle accordingly
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client?reload=true', // connects to the HMR server to receive notifications when the bundle rebuilds and then updates your client bundle accordingly
     `${PATH.CLIENT_SRC}/main.js`,
   ],
   devtool: 'eval-source-map',
