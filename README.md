@@ -53,6 +53,11 @@ http://localhost:8000
 ```
 
 
+### Features
+- [PostCSS](https://github.com/postcss/postcss) Transforming styles with JS plugins. Why we use it? It's a better CSS, it solve CSS problems and also [performs better than using inline-style]
+(http://blog.primehammer.com/2017/09/27/the-performance-of-styled-react-components/)
+- [Immutability-Helper](https://github.com/kolodny/immutability-helper) Performance matter, instead of making the changes in that object, create a copy of that object with the changes. This makes detecting changes in data as simple as comparing the reference of the two objects [[1]](https://www.toptal.com/javascript/immutability-in-javascript-using-redux)[[2]](https://www.toptal.com/react/optimizing-react-performance?utm_campaign=blog_post_optimizing_react_performance&utm_medium=email&utm_source=blog_subscribers).
+
 
 ### Production Dependencies
 | **Dependency** | **Use** |
@@ -85,7 +90,7 @@ http://localhost:8000
 |html-webpack-plugin|Simplifies creation of HTML files to serve your webpack bundles |
 |ip|IP address utilities for node.js |
 |json-loader|Add Json file support to Webpack |
-|proggress-bar-webpack-plugin|A progress bar for Webpack |
+[postcss-loader]|Webpack loader for postcss|
 |style-loader|Add Style support to Webpack |
 |url-loader|Add url loading support to Webpack |
 |webpack| Bundler with plugin system and integrated development server |

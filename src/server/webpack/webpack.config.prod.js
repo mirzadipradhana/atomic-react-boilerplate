@@ -41,7 +41,7 @@ module.exports = {
     new CompressionPlugin({ test: /\.js/ }),
     new Webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
     new ExtractTextPlugin('stylesheet/[name].css'),
