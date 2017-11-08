@@ -8,6 +8,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
 var WebpackHash = require('webpack-md5-hash');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const BUILD_TARGET = 'dist';
 
@@ -56,10 +57,11 @@ module.exports = {
     new Webpack.optimize.OccurrenceOrderPlugin(),
     new Webpack.NamedModulesPlugin(),
     new Webpack.NoEmitOnErrorsPlugin(),
-    new Webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false },
-      comments: false,
-    }),
+
+    // tree shaking: eliminate dead codes
+    new UglifyJSPlugin(),
+
+    // compress bundled file to gzip
     new CompressionPlugin({ test: /\.js/ }),
     new Webpack.DefinePlugin({
       'process.env': {

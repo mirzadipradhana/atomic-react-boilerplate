@@ -5,6 +5,7 @@ import Webpack from 'webpack';
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 const BUILD_TARGET = 'dist';
@@ -32,6 +33,15 @@ module.exports = {
       'React': 'react',
       'ReactDOM': 'react-dom',
     }),
+
+    // compress bundled file to gzip
+    new CompressionPlugin({
+      test: /\.js/,
+      algorithm: 'gzip',
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+
     new Webpack.optimize.OccurrenceOrderPlugin(),
     new Webpack.NamedModulesPlugin(),
     new Webpack.HotModuleReplacementPlugin(), // enabled HMR
