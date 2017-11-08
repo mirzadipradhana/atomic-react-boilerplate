@@ -22,7 +22,12 @@ module.exports = {
     publicPath: `/${BUILD_TARGET}/`,
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    // emove/clean your build folder(s) before building
+    new CleanWebpackPlugin(['dist'], {
+      root: PATH.ROOT,
+      verbose: true,
+      dry: false,
+    }),
 
     // add hash the output bundle file name so it will change every time building a new version
     new WebpackHash(),
