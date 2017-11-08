@@ -7,6 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
+var WebpackHash = require('webpack-md5-hash');
 
 const BUILD_TARGET = 'dist';
 
@@ -17,11 +18,15 @@ module.exports = {
   ],
   output: {
     path: `${PATH.ROOT}/${BUILD_TARGET}/`,
-    filename: '[name]-[chunkhash].js',
+    filename: '[name].[chunkhash].js',
     publicPath: `/${BUILD_TARGET}/`,
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
+
+    // add hash the output bundle file name so it will change every time building a new version
+    new WebpackHash(),
+
     new HtmlWebpackPlugin({
       template: `${PATH.TEMPLATES}/index.tpl.html`,
       inject: 'body',
