@@ -6,7 +6,6 @@ import Webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 const BUILD_TARGET = 'dist';
 
@@ -24,7 +23,6 @@ module.exports = {
     publicPath: `/${BUILD_TARGET}/`,
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: `${PATH.TEMPLATES}/index.tpl.html`,
       inject: 'body',
