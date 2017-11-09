@@ -76,6 +76,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
         include: PATH.CLIENT_SRC,
+        exclude: `${PATH.ROOT}/node_modules/`,
       },
       {
         test: /\.(png|jpg)$/,
