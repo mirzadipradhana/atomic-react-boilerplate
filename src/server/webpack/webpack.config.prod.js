@@ -7,31 +7,36 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
-var WebpackHash = require('webpack-md5-hash');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const BUILD_TARGET = 'dist';
 
 module.exports = {
-  entry: [
-    'babel-polyfill',
-    `${PATH.CLIENT_SRC}/main.js`,
-  ],
+  entry: {
+    app: [
+      'babel-polyfill', // Support promise for IE browser (for dev)
+      `${PATH.CLIENT_SRC}/main.js`,
+    ],
+    vendor: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'redux',
+      'material-ui',
+    ],
+  },
   output: {
     path: `${PATH.ROOT}/${BUILD_TARGET}/`,
-    filename: '[name].[chunkhash].js',
+    filename: '[name].[hash].js',
     publicPath: `/${BUILD_TARGET}/`,
   },
   plugins: [
-    // emove/clean your build folder(s) before building
+    // remove/clean your build folder(s) before building
     new CleanWebpackPlugin(['dist'], {
       root: PATH.ROOT,
       verbose: true,
       dry: false,
     }),
-
-    // add hash the output bundle file name so it will change every time building a new version
-    new WebpackHash(),
 
     new HtmlWebpackPlugin({
       template: `${PATH.TEMPLATES}/index.tpl.html`,
@@ -57,6 +62,9 @@ module.exports = {
     new Webpack.optimize.OccurrenceOrderPlugin(),
     new Webpack.NamedModulesPlugin(),
     new Webpack.NoEmitOnErrorsPlugin(),
+
+    // create separate common modules file chunk
+    new Webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
 
     // tree shaking: eliminate dead codes
     new UglifyJSPlugin(),

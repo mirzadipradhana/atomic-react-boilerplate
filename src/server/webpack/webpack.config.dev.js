@@ -1,26 +1,35 @@
 'use strict';
 
-import { APP_SETUP, PATH } from '../../../.configs';
 import Webpack from 'webpack';
-
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
+import { APP_SETUP, PATH } from '../../../.configs';
+
 const BUILD_TARGET = 'dist';
 
 module.exports = {
-  entry: [
-    'babel-polyfill', // Support promise for IE browser (for dev)
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client?reload=true', // connects to the HMR server to receive notifications when the bundle rebuilds and then updates your client bundle accordingly
-    `${PATH.CLIENT_SRC}/main.js`,
-  ],
+  entry: {
+    app: [
+      'babel-polyfill', // Support promise for IE browser (for dev)
+      'react-hot-loader/patch',
+      'webpack-hot-middleware/client?reload=true', // connects to the HMR server to receive notifications when the bundle rebuilds and then updates your client bundle accordingly
+      `${PATH.CLIENT_SRC}/main.js`,
+    ],
+    vendor: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'redux',
+      'material-ui',
+    ],
+  },
   devtool: 'eval-source-map',
   output: {
     path: `${PATH.ROOT}/${BUILD_TARGET}/`,
-    filename: 'bundle.js',
+    filename: '[name].[hash].js',
     publicPath: `/${BUILD_TARGET}/`,
   },
   plugins: [
@@ -41,6 +50,9 @@ module.exports = {
       threshold: 10240,
       minRatio: 0.8,
     }),
+
+    // create separate common modules file chunk
+    new Webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
 
     new Webpack.optimize.OccurrenceOrderPlugin(),
     new Webpack.NamedModulesPlugin(),
