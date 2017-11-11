@@ -1,7 +1,7 @@
 import { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Header from '~/src/client/ui/sections/Header';
-import Modal from '~/src/client/ui/sections/Modal';
+import Header from '~/src/client/ui/uikit/sections/Header';
+import Modal from '~/src/client/ui/uikit/sections/Modal';
 import logo from '~/src/client/assets/images/bobowl-logo.svg';
 import styles from './style.css';
 

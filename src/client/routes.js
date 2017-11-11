@@ -1,17 +1,15 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import MainView from './ui/views/ViewMain';
-import IndexPage from './ui/views/PageIndex';
-import DomainContainer from './ui/views/DomainContainer';
-import NewsPage from './ui/views/PageNews';
+import MainView from './ui/domain/ViewMain';
+import IndexPage from './ui/domain/PageIndex';
+import DomainContainer from './ui/domain/DomainContainer';
 
-const AboutPage = () => <DomainContainer load={import('./ui/views/PageAbout')} />;
+const AboutPage = () => <DomainContainer load={import('./ui/domain/PageAbout')} />;
 
 export default (
   <Route path="/" component={MainView}>
     <IndexRoute component={IndexPage} />
     <Route path="about" component={AboutPage} />
-    <Route path="news" component={NewsPage} />
   </Route>
 );

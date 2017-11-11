@@ -1,5 +1,5 @@
-import Brand from '~/src/client/ui/components/Brand';
-import NavBar from '~/src/client/ui/containers/TopNavBar';
+import Brand from '~/src/client/ui/uikit/components/Brand';
+import NavBar from '~/src/client/ui/uikit/containers/TopNavBar';
 import styles from './style.css';
 
 const Header = ({ navigationItems, brandImage, hideBrandImage, brandName, className, location }) => {
