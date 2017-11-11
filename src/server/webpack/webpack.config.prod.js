@@ -64,7 +64,7 @@ module.exports = {
     new Webpack.NoEmitOnErrorsPlugin(),
 
     // create separate common modules file chunk
-    new Webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
+    new Webpack.optimize.CommonsChunkPlugin({ name: 'common', filename: 'common.js' }),
 
     // tree shaking: eliminate dead codes
     new UglifyJSPlugin(),

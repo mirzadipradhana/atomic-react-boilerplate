@@ -52,7 +52,7 @@ module.exports = {
     }),
 
     // create separate common modules file chunk
-    new Webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
+    new Webpack.optimize.CommonsChunkPlugin({ name: 'common', filename: 'common.js' }),
 
     new Webpack.optimize.OccurrenceOrderPlugin(),
     new Webpack.NamedModulesPlugin(),
