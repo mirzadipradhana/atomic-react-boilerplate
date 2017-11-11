@@ -1,5 +1,5 @@
 {
   "name": "PageAbout",
   "private": true,
-  "main": "./PageAbout.jsx"
+  "main": "./PageAbout.js"
 }

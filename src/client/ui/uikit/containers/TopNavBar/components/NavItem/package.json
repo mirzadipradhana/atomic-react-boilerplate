@@ -1,5 +1,5 @@
 {
   "name": "NavItem",
   "private": true,
-  "main": "./NavItem.jsx"
+  "main": "./NavItem.js"
 }

@@ -81,7 +81,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js)$/,
         use: 'babel-loader',
         include: PATH.CLIENT_SRC,
         exclude: `${PATH.ROOT}/node_modules/`,
@@ -118,7 +118,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js'],
   },
   target: 'web',
 };

@@ -1,5 +1,5 @@
 {
   "name": "Brand",
   "private": true,
-  "main": "./Brand.jsx"
+  "main": "./Brand.js"
 }

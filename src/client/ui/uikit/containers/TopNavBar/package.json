@@ -1,5 +1,5 @@
 {
   "name": "TopNavBar",
   "private": true,
-  "main": "./TopNavBar.jsx"
+  "main": "./TopNavBar.js"
 }
