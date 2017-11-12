@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Brand from '~/src/client/ui/uikit/components/Brand';
 import NavBar from '~/src/client/ui/uikit/containers/TopNavBar';
 import styles from './style.css';
@@ -20,12 +21,12 @@ const Header = ({ navigationItems, brandImage, hideBrandImage, brandName, classN
 };
 
 Header.propTypes = {
-  navigationItems: React.PropTypes.arrayOf(React.PropTypes.object),
-  location: React.PropTypes.object,
-  hideBrandImage: React.PropTypes.bool,
-  brandImage: React.PropTypes.string,
-  brandName: React.PropTypes.string,
-  className: React.PropTypes.string,
+  navigationItems: PropTypes.arrayOf(PropTypes.object),
+  location: PropTypes.object,
+  hideBrandImage: PropTypes.bool,
+  brandImage: PropTypes.string,
+  brandName: PropTypes.string,
+  className: PropTypes.string,
 };
 
 

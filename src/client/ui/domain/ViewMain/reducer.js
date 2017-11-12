@@ -9,7 +9,6 @@ const initialState = {
 };
 
 export default function (state = initialState, { type, payload }) {
-  console.log(payload);
   switch (type) {
   case 'OPEN_MODAL':
     return update(state, {

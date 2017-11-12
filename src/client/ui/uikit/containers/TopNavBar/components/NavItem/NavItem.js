@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import styles from './style.css';
 
@@ -24,10 +25,10 @@ NavItem.defaultProps = {
 };
 
 NavItem.propTypes = {
-  name: React.PropTypes.string,
-  path: React.PropTypes.string,
-  anchor: React.PropTypes.string,
-  isActive: React.PropTypes.bool,
+  name: PropTypes.string,
+  path: PropTypes.string,
+  anchor: PropTypes.string,
+  isActive: PropTypes.bool,
 };
 
 export default NavItem;

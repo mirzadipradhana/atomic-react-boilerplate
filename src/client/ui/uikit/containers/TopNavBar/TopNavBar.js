@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import NavItem from './components/NavItem';
 import styles from './style.css';
 
@@ -35,9 +37,9 @@ const TopNavBar = ({ navItems, onNavigate, location }) => {
 };
 
 TopNavBar.propTypes = {
-  onNavigate: React.PropTypes.func,
-  navItems: React.PropTypes.arrayOf(React.PropTypes.object),
-  location: React.PropTypes.object,
+  onNavigate: PropTypes.func,
+  navItems: PropTypes.arrayOf(PropTypes.object),
+  location: PropTypes.object,
 };
 
 export default TopNavBar;

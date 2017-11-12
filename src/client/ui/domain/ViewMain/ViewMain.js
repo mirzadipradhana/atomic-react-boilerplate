@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '~/src/client/ui/uikit/sections/Header';
 import Modal from '~/src/client/ui/uikit/sections/Modal';

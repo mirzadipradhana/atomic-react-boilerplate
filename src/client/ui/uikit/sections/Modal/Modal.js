@@ -1,5 +1,6 @@
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import PropTypes from 'prop-types';
 
 /**
  * A modal dialog can only be closed by selecting one of the actions.
@@ -12,14 +13,14 @@ const Modal = (props) => {
   const defaultActions = [
     <FlatButton
       label="Cancel"
-      primary={true}
       onTouchTap={handleClose}
+      primary
     />,
     <FlatButton
       label="Submit"
-      primary={true}
-      disabled={true}
       onTouchTap={handleClose}
+      primary
+      disabled
     />,
   ];
 
@@ -44,9 +45,9 @@ Modal.defaultProps = {
 };
 
 Modal.propTypes = {
-  actions: React.PropTypes.arrayOf(React.PropTypes.object),
-  open: React.PropTypes.bool,
-  onClose: React.PropTypes.func,
+  actions: PropTypes.arrayOf(PropTypes.object),
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
 };
 
 export default Modal;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './style.css';
 import defaultImgBrand from './images/logo-default.png';
@@ -14,8 +15,8 @@ const Brand = ({ brandName, brandImage }) => {
 };
 
 Brand.propTypes = {
-  brandName: React.PropTypes.string,
-  brandImage: React.PropTypes.string
+  brandName: PropTypes.string,
+  brandImage: PropTypes.string,
 };
 
 export default Brand;
