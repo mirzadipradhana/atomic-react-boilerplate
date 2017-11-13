@@ -56,9 +56,10 @@ ViewMain.propTypes = {
 };
 
 
-const mapStateToProps = ({ app }) => {
+const mapStateToProps = ({ app, router }) => {
   return {
     modal: app.modal,
+    location: router.location,
   };
 };
 

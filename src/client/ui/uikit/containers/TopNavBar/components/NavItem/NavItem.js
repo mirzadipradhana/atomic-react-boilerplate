@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import styles from './style.css';
 
 const NavItem = ({ name, path, anchor, isActive }) => {
@@ -9,7 +9,7 @@ const NavItem = ({ name, path, anchor, isActive }) => {
 
   const NavButton = anchor
     ? <a href={`#${anchor}`} onClick={navigateToAnchor} className={isActive ? styles.active : ''}>{name}</a>
-    : <Link to={path} activeClassName={isActive ? styles.active : ''}>
+    : <Link to={path} className={isActive ? styles.active : ''}>
         {name}
       </Link>;
 

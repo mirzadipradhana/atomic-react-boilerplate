@@ -87,10 +87,6 @@ module.exports = {
         exclude: `${PATH.ROOT}/node_modules/`,
       },
       {
-        test: /\.(png|jpg)$/,
-        use: 'file-loader',
-      },
-      {
         test: /\.json$/,
         use: 'json-loader',
       },
@@ -112,7 +108,7 @@ module.exports = {
         }),
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
         use: 'file-loader?name=fonts/[name].[ext]',
       },
     ],
