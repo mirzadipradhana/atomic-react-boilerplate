@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { renderRoutes } from 'react-router-config';
+
 import Header from '~/src/client/ui/uikit/sections/Header';
 import Modal from '~/src/client/ui/uikit/sections/Modal';
 import logo from '~/src/client/assets/images/bobowl-logo.svg';
@@ -32,7 +34,7 @@ class ViewMain extends React.Component {
       <div className={styles.root}>
         <Header navigationItems={navItems} location={this.props.location} brandImage={logo} />
         <div className={styles.content}>
-          {this.props.children}
+          {renderRoutes(this.props.route.routes)}
         </div>
         <Modal {...this.props.modal} onClose={this.handleCloseModal} />
       </div>
@@ -46,8 +48,7 @@ ViewMain.defaultProps = {
 
 ViewMain.propTypes = {
   dispatch: PropTypes.func,
-  children: PropTypes.object.isRequired,
-  location: PropTypes.object,
+  location: PropTypes.object.isRequired,
   modal: PropTypes.shape({
     open: PropTypes.bool.isRequired,
     modal: PropTypes.bool.isRequired,
