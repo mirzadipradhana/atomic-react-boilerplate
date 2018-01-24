@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './style.css';
 
 class PageAbout extends React.Component {

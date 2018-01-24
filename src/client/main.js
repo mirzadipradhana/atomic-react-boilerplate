@@ -1,27 +1,40 @@
-import { ConnectedRouter } from 'react-router-redux';
-import { renderRoutes } from 'react-router-config';
-import createBrowserHistory from 'history/createBrowserHistory';
+import React from 'react';
 import { Provider } from 'react-redux';
+import { render } from 'react-dom';
+import { AppContainer as HotAppContainer } from 'react-hot-loader';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import configureStore from './configureStore';
-import routes from './routes';
-import styles from './assets/css/globals.css';
+import createHistory from 'history/createBrowserHistory';
+import createStore from './configureStore.js';
 
-const history = createBrowserHistory();
-const store = configureStore(history);
+import AppContainer from './AppContainer';
 
 injectTapEventPlugin();
+const history = createHistory();
+const store = createStore(history);
 
-const App = (
-  <MuiThemeProvider>
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        {renderRoutes(routes)}
-      </ConnectedRouter>
-    </Provider>
-  </MuiThemeProvider>
-);
+const rootEl = document.querySelector('#app');
 
-ReactDOM.render(App, document.querySelector('#app'));
+const renderApp = (Component) => {
+  render(
+    <MuiThemeProvider>
+      <HotAppContainer>
+        <Provider store={store}>
+          <Component history={history} />
+        </Provider>
+      </HotAppContainer>
+    </MuiThemeProvider>,
+    rootEl
+  );
+};
+
+renderApp(AppContainer);
+if (module.hot) {
+  module.hot.accept('./AppContainer.js', () => {
+    module.hot.accept();
+    const nextAppContainer = require('./AppContainer.js');
+    nextAppContainer.default ? renderApp(nextAppContainer.default) : renderApp(nextAppContainer);
+  });
+}
+

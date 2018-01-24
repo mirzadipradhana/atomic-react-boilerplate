@@ -11,11 +11,14 @@ import {
 } from 'react-router-redux';
 
 import appReducer from './ui/domain/ViewMain/reducer';
-import rootSaga from './rootSaga';
+// import rootSaga from './rootSaga';
 
-export default function configureStore(browserHistory, initialState) {
+export default (browserHistory, initialState) => {
   const sagaMiddleware = createSagaMiddleware();
-  const middlewares = [sagaMiddleware, createRouterMiddleware(browserHistory)];
+  const middlewares = [
+    sagaMiddleware,
+    createRouterMiddleware(browserHistory)
+  ];
   const reducer = combineReducers(
     {
       app: appReducer,
@@ -30,7 +33,6 @@ export default function configureStore(browserHistory, initialState) {
       applyMiddleware(...middlewares)
   ));
 
-  sagaMiddleware.run(rootSaga);
+  // sagaMiddleware.run(rootSaga);
   return store;
-}
-
+};

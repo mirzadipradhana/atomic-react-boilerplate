@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import NavItem from './components/NavItem';
@@ -8,11 +9,11 @@ const TopNavBar = ({ navItems, onNavigate, location }) => {
     return (items || []).map((item, index) => {
       let isActive = false;
 
-      if (item.anchor && item.anchor === location.hash.substring(1)) {
-        isActive = true;
-      } else if (item.path && item.path === location.pathname) {
-        isActive = true;
-      }
+      // if (item.anchor && item.anchor === location.hash.substring(1)) {
+      //   isActive = true;
+      // } else if (item.path && item.path === location.pathname) {
+      //   isActive = true;
+      // }
 
       return (
         <NavItem

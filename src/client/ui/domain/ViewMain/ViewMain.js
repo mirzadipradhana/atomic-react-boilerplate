@@ -1,6 +1,6 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { renderRoutes } from 'react-router-config';
 
 import Header from '~/src/client/ui/uikit/sections/Header';
 import Modal from '~/src/client/ui/uikit/sections/Modal';
@@ -34,7 +34,7 @@ class ViewMain extends React.Component {
       <div className={styles.root}>
         <Header navigationItems={navItems} location={this.props.location} brandImage={logo} />
         <div className={styles.content}>
-          {renderRoutes(this.props.route.routes)}
+          {this.props.children}
         </div>
         <Modal {...this.props.modal} onClose={this.handleCloseModal} />
       </div>

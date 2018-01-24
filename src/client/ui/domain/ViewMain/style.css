@@ -1,3 +1,49 @@
+@import '../../../assets/css/variables.css';
+@font-face {
+  font-family: systemFontLight;
+  src: url(../../../assets/fonts/AvenirNext-UltraLight.ttf);
+}
+@font-face {
+  font-family: systemFontRegular;
+  src: url(../../../assets/fonts/AvenirNext-Regular.ttf);
+}
+@font-face {
+  font-family: systemFontBold;
+  src: url(../../../assets/fonts/AvenirNext-Medium.ttf);
+}
+
+html, body {
+  /* call css variable using postcss-simple-vars */
+  padding: 0;
+  margin: 0;
+  background-color: $white;
+  width: 100%;
+  font-family: systemFontLight;
+  color: $dark-gray;
+}
+
+/* instantiate global css class using postcss */
+:global .container {
+  background-color: $white;
+}
+
+h1 {
+  color: $medium-gray;
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p {
+  color: $medium-gray;
+}
+
 .root {
   background-color: #ffffff;
   width: 100%;

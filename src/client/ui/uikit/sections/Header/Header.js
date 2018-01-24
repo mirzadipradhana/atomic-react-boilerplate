@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import Brand from '~/src/client/ui/uikit/components/Brand';
 import NavBar from '~/src/client/ui/uikit/containers/TopNavBar';

@@ -1,57 +1,73 @@
 'use strict';
 
-import Express from 'express';
-import Webpack from 'webpack';
-import Path from 'path';
+import http from 'http';
+import express from 'express';
 
-import Logger from './libs/logger';
-import { APP_SETUP } from '../../.configs';
-const webpackHMR = process.env.NODE_ENV !== 'production' ? require('./middlewares/webpackHMR.middleware') : null;
-const webpackConfig = process.env.NODE_ENV === 'production' ? require('./webpack/webpack.config.prod') : require('./webpack/webpack.config.dev');
+// import Logger from './libs/logger';
 
-const app = Express();
+// Server Side Rendering
+import {
+  renderPage,
+  renderDevPage,
+} from './ssr.js';
 
-// serve compressed file
-app.get('*.js', (req, res, next) => {
-  req.url = `${req.url}.gz`;
-  res.set('Content-Encoding', 'gzip');
-  next();
+const IS_PROD = process.env.NODE_ENV === 'production';
+
+const app = express();
+
+
+if (IS_PROD) {
+  // serve compressed file
+  app.get('*.js', (req, res, next) => {
+    req.url = `${req.url}.gz`;
+    res.set('Content-Encoding', 'gzip');
+    next();
+  });
+
+  app.use('/static', express.static('build'));
+  app.get('*', renderPage);
+} else {
+  // Hot Module Reloading
+  const webpack = require('webpack');
+  const devWebpackConfig = require('../../webpack/webpack.config.development.js');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+
+  const compiler = webpack(devWebpackConfig);
+
+  app.use(webpackDevMiddleware(compiler, {
+    noInfo: true,
+    hot: true,
+    publicPath: devWebpackConfig.output.publicPath,
+  }));
+
+  app.use(webpackHotMiddleware(compiler, {
+    log: console.log,
+    reload: true,
+  }));
+
+  app.get('*', renderDevPage);
+}
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
-if (process.env.NODE_ENV !== 'production') {
-  // Running webpack builder with NodeAPI with HMR middleware
-  // //
-  app.use(webpackHMR(webpackConfig));
-} else {
-  console.log('Production bundling...');
-  let bundleStart = null;
-  const builder = Webpack(webpackConfig);
-
-  builder.plugin('compile', () => {
-    console.log('Bundling ...');
-    bundleStart = Date.now();
-  });
-
-  builder.plugin('done', () => {
-    console.log(`Bundled in ${(Date.now() - bundleStart)}ms!`);
-  });
-
-  console.log(Path.join(__dirname, '../..', '/dist'));
-
-  app.use(Express.static(Path.join(__dirname, '../..', '/dist'), { maxAge: APP_SETUP.CACHE_AGE }));
-
-  app.get('*', (req, res) => {
-    res.sendFile(Path.join(__dirname, '../..', 'dist/index.html'));
+// error handler
+if (!IS_PROD) {
+  // development
+  app.use(function(err, req, res, next) {
+    console.error('error : ', err.message);
+    res.status(err.status || 500);
   });
 }
 
-app.set('port', (process.env.PORT || APP_SETUP.PORT));
-app.disable('x-powered-by');
+const server = http.createServer(app);
 
-app.listen(app.get('port'), (err) => {
-  if (err) {
-    return Logger.error(err);
-  }
-
-  Logger.appStarted({ protocol: APP_SETUP.PROTOCOL, host: APP_SETUP.HOST, port: APP_SETUP.PORT });
+server.listen(8000, function() {
+   const address = server.address();
+   console.log(`>>> Listening on: localhost::${address.port}`);
 });
