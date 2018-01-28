@@ -1,3 +1,4 @@
+// Server Side Rendering inspired by https://github.com/Alex-ray/v2-universal-js-hmr-ssr-react-redux
 import path from 'path';
 import webpack from 'webpack';
 
