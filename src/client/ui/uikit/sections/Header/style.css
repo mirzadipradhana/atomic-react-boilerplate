@@ -9,6 +9,7 @@
   padding: 8px 0;
   position: fixed;
   z-index: 10000;
+  top: 0;
 
   .container {
     width: 1200px;

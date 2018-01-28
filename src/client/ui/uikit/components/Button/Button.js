@@ -8,11 +8,11 @@ const Button = (props) => {
     props.onClick(props.value);
   };
 
-  const defaultStyle = `${styles.button} ${styles.ripple}`;
   return (
     <button
-      className={`${defaultStyle} ${props.className ? props.className : ''}`}
+      className={`${styles.button} ${styles.ripple}`}
       onClick={handleButtonClick}
+      style={props.style}
     >
       {props.children}
     </button>
@@ -22,6 +22,7 @@ const Button = (props) => {
 Button.defaultProps = {
   children: 'Button',
   onClick: () => {},
+  style: {},
   className: '',
   value: null,
 };
@@ -31,5 +32,6 @@ Button.propTypes = {
   className: PropTypes.string,
   value: PropTypes.any,
   onClick: PropTypes.func,
+  style: PropTypes.object,
 };
 export default Button;

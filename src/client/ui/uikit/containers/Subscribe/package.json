@@ -1,0 +1,5 @@
+{
+  "name": "Subscribe",
+  "private": true,
+  "main": "./Subscribe.js"
+}

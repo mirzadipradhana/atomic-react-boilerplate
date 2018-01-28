@@ -2,13 +2,12 @@
 @import '../../../assets/css/mixins.css';
 
 .root {
-  color: $blue-react;
   font-weight: bold;
   border: none;
   text-align: center;
   width: calc(100% - 2.4rem - 1.6rem);
   height: calc(100vh - 10rem);
-
+  position: relative;
 
   @media (--iphone5-potrait) {
     width: 100%;
@@ -72,7 +71,6 @@
 .heading {
   margin-top: 1.2rem;
   margin-bottom: 0;
-  color: #ffffff;
   font-weight: bold;
   font-stretch: wider;
   font-size: 2.2rem;
@@ -92,6 +90,10 @@
     letter-spacing: 0.8rem;
     /* styles for small viewport */
   }
+}
+
+.subHeading {
+  font-size: 1.7rem;
 }
 
 .button {

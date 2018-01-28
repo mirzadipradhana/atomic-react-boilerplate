@@ -1,0 +1,12 @@
+.root {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+}
+
+.middleContent {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}

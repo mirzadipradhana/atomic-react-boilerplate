@@ -1,0 +1,29 @@
+.root {
+  width: 100%;
+  text-align: center;
+}
+.inputContainer {
+  width: 107px;
+  display: inline-block;
+  text-align: center;
+}
+.inputContainerOpen {
+  width: 370px;
+  transition: width .5s;
+  transition-delay: .5s;
+  position: relative;
+  z-index: 2;
+}
+
+.buttonContainer {
+  position: relative;
+  top: -45px;
+  left: 0px;
+}
+.buttonContainerOpen {
+  position: relative;
+  top: -45px;
+  left: 132px;
+  transition: left .5s;
+  transition-delay: .5s;
+}

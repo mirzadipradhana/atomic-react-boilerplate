@@ -19,7 +19,7 @@ html, body {
   background-color: $white;
   width: 100%;
   font-family: systemFontLight;
-  color: $dark-gray;
+  color: $medium-gray;
 }
 
 /* instantiate global css class using postcss */
@@ -50,7 +50,7 @@ p {
 
   .content {
     width: calc(100% - (2*16px));
-    margin: 0 auto;
+    margin-top: 30px;
     padding: 16px;
   }
 }

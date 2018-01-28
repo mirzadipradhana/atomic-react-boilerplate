@@ -1,0 +1,5 @@
+{
+  "name": "Content",
+  "private": true,
+  "main": "./Content.js"
+}

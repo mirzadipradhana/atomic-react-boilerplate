@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '~/src/client/assets/images/bobowl-logo-font-white.svg';
 import styles from './style.css';
+import Content from '../../uikit/sections/Content';
+import Subscribe from '../../uikit/containers/Subscribe';
 
 class PageIndex extends React.Component {
   constructor(props) {
@@ -10,13 +12,10 @@ class PageIndex extends React.Component {
   render() {
     return (
       <div className={styles.root}>
-        <div className={styles.bg}></div>
-        <div className={styles.content}>
-          <img src={logo} alt="logo" className={styles.logo} />
-          <div>
-            <h1 className={styles.heading}>RICE BOWL SPECIALITIES</h1>
-          </div>
-        </div>
+        <Content verticalAlign="middle">
+          <div className={styles.subHeading}>DON'T MISS SOMETHING COOL</div>
+          <Subscribe />
+        </Content>
       </div>
     );
   }
