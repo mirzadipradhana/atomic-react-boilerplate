@@ -4,6 +4,7 @@
   "description": "React.JS atomic design boilerplate build by Webpack",
   "main": "src/server/main.js",
   "scripts": {
+    "start": "npm run build && npm run production",
     "develop": "NODE_PATH=./src NODE_ENV=development node ./src/server/server.babel.js",
     "production": "NODE_PATH=./src NODE_ENV=production node ./src/server/server.babel.js",
     "build": "npm run build:client && npm run build:server",
