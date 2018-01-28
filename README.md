@@ -58,6 +58,7 @@ http://localhost:8000
 - [Immutability-Helper](https://github.com/kolodny/immutability-helper) Performance matter, instead of making the changes in that object, create a copy of that object with the changes. This makes detecting changes in data as simple as comparing the reference of the two objects [[1]](https://www.toptal.com/javascript/immutability-in-javascript-using-redux)[[2]](https://www.toptal.com/react/optimizing-react-performance?utm_campaign=blog_post_optimizing_react_performance&utm_medium=email&utm_source=blog_subscribers).
 - Tree shaking - Optimize webpak bundled with dead-code elimination.
 - Code splitting - split code into various bundles which can then be loaded on demand.
+- Server side rendering.
 
 
 ### Production Dependencies
