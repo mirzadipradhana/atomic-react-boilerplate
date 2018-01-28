@@ -66,8 +66,10 @@ if (!IS_PROD) {
 }
 
 const server = http.createServer(app);
+app.set('port', (process.env.PORT || 8080));
+app.disable('x-powered-by');
 
-server.listen(8000, function() {
+server.listen(app.get('port'), function() {
    const address = server.address();
    console.log(`>>> Listening on: localhost::${address.port}`);
 });
