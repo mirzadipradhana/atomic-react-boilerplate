@@ -1,6 +1,6 @@
 // Libraries
 import React from 'react';
-import { Route } from 'react-router';
+import { Switch, Route, Redirect } from 'react-router';
 
 import MainView from '../ui/domain/ViewMain';
 
@@ -15,11 +15,13 @@ const Routes = (props) => {
 
   return (
     <MainView>
-      <div>
+      <Switch>
         <Route exact location={location} path="/" component={RouteMap.IndexPage} />
         <Route exact location={location} path="/home" component={RouteMap.IndexPage} />
         <Route exact location={location} path="/about" component={RouteMap.AboutPage} />
-      </div>
+        <Route exact path='/404' component={RouteMap.NotFoundPage} />
+        <Redirect to='/404' />
+      </Switch>
     </MainView>
   );
 }

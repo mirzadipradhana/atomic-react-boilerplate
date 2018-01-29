@@ -1,11 +1,12 @@
 import React from 'react';
+import Content from '../../uikit/sections/Content';
 
 class NotFound extends React.Component {
   render() {
     return (
-      <div>
-        <h1>404 Not Found</h1>
-      </div>
+      <Content verticalAlign="middle">
+        <h1 style={{ textAlign: 'center' }}>404 Not Found</h1>
+      </Content>
     );
   }
 }
