@@ -13,8 +13,10 @@ class PageIndex extends React.Component {
     return (
       <div className={styles.root}>
         <Content verticalAlign="middle">
-          <div className={styles.subHeading}>DON'T MISS SOMETHING COOL</div>
-          <Subscribe />
+          <div>
+            <div className={styles.subHeading}>DON'T MISS SOMETHING COOL</div>
+            <Subscribe />
+          </div>
         </Content>
       </div>
     );
