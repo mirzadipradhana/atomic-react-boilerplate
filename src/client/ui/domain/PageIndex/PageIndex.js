@@ -4,7 +4,7 @@ import styles from './style.css';
 import Content from '../../uikit/sections/Content';
 import Subscribe from '../../uikit/containers/Subscribe';
 
-class PageIndex extends React.Component {
+class PageIndex extends React.PureComponent {
   constructor(props) {
     super(props);
   }

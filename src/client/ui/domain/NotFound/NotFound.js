@@ -1,7 +1,7 @@
 import React from 'react';
 import Content from '../../uikit/sections/Content';
 
-class NotFound extends React.Component {
+class NotFound extends React.PureComponent {
   render() {
     return (
       <Content verticalAlign="middle">
