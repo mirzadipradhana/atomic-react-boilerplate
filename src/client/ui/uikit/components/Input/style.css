@@ -16,4 +16,9 @@
   &::-webkit-input-placeholder {
     color: #ccc;
   }
+  &:focus {
+    &::-webkit-input-placeholder {
+      color: rgb(35, 221, 235);
+    }
+  }
 }
