@@ -70,11 +70,25 @@ export default {
     rules: [
       {
         test: /\.(eot|otf|ttf|woff|woff2)(\?.*)?$/,
-        use: 'file-loader?name=fonts/[name].[ext]',
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
       },
       {
         test: /\.(ico|jpg|jpeg|png|gif|webp|svg)(\?.*)?$/,
-        use: 'file-loader?name=images/[name].[ext]',
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
       },
       // JavaScript
       {
