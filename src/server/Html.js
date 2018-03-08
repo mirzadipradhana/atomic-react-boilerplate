@@ -49,6 +49,7 @@ class Html extends React.Component {
      <html>
        <head>
          <meta charSet="utf-8"/>
+         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2" />
          <title>{title}</title>
 
          {IS_PROD && <link rel="stylesheet" href="/static/prerender.css" type="text/css" />}
