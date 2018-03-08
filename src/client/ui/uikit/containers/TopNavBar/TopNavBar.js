@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as R from 'ramda';
 
 import NavItem from './components/NavItem';
 import styles from './style.css';
@@ -9,11 +10,11 @@ const TopNavBar = ({ navItems, onNavigate, location }) => {
     return (items || []).map((item, index) => {
       let isActive = false;
 
-      // if (item.anchor && item.anchor === location.hash.substring(1)) {
-      //   isActive = true;
-      // } else if (item.path && item.path === location.pathname) {
-      //   isActive = true;
-      // }
+      if (R.propEq('anchor', R.propOr('', 'hash', location).substring(1), item)) {
+        isActive = true;
+      } else if (R.propEq('path', R.prop('pathname', location), item)) {
+        isActive = true;
+      }
 
       return (
         <NavItem
