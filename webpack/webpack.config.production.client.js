@@ -69,8 +69,12 @@ export default {
   module: {
     rules: [
       {
-        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+        test: /\.(eot|otf|ttf|woff|woff2)(\?.*)?$/,
         use: 'file-loader?name=fonts/[name].[ext]',
+      },
+      {
+        test: /\.(ico|jpg|jpeg|png|gif|webp|svg)(\?.*)?$/,
+        use: 'file-loader?name=images/[name].[ext]',
       },
       // JavaScript
       {
